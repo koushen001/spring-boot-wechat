@@ -6,7 +6,7 @@ package com.cike.config;
  * @create 2017-09-14 9:15
  **/
 public class WechatConfig {
-    public static final String DO_MAIN = "http://koushen001.imwork.net/";
+    public static final String DO_MAIN = "http://www.kouliang.site/";
     public static final String APPID = "wx08cb57911c39673c";
     public static final String APPSECRET = "714e5d3b5ba6de330c730b17dde4b7ed";
     public static final String TOKEN = "kou";

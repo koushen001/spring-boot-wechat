@@ -28,8 +28,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         User user = (User) request.getSession().getAttribute(MyConst.CURRENT_USER);
         if (user == null) {
-            response.sendRedirect("/login/index");
-            //response.sendRedirect("/login/wechat");
+            //response.sendRedirect("/login/index");
+            response.sendRedirect("/login/wechat");
         }
         return true;
     }

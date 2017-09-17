@@ -19,6 +19,8 @@ function checkForm() {
     var deviceName = $(".deviceName").val();
     var expireDate = $(".expireDate").val();
     var remindDate = $(".remindDate").val();
+    var checkType = $(".checkType").val();
+    var useStatus = $(".useStatus").val();
     if (deviceName==""||deviceName==null){
         //提示
         layer.open({
@@ -29,14 +31,24 @@ function checkForm() {
         $(".deviceName").focus();
         return;
     }
-    if (expireDate==""||expireDate==null){
+    if (checkType==0){
         //提示
         layer.open({
-            content: '请选择提醒日期'
+            content: '请选择校类型'
             ,skin: 'msg'
             ,time: 2 //2秒后自动关闭
         });
-        $(".expireDate").focus();
+        $(".checkType").focus();
+        return;
+    }
+    if (useStatus==0){
+        //提示
+        layer.open({
+            content: '请选择使用状态'
+            ,skin: 'msg'
+            ,time: 2 //2秒后自动关闭
+        });
+        $(".useStatus").focus();
         return;
     }
     if (remindDate==""||remindDate==null){

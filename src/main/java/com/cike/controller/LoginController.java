@@ -5,10 +5,10 @@ import com.cike.config.WechatConfig;
 import com.cike.entity.User;
 import com.cike.service.UserService;
 import com.cike.service.WechatService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,13 +33,18 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Value("${authorize_url_redirect_uri}")
+    private String authorize_url_redirect_uri;
+
     @RequestMapping("/wechat")
     public void wechat(HttpServletResponse response) {
         try {
-            response.sendRedirect(WechatConfig.AUTHORIZE_URL
+            LOGGER.info("进入微信请求。。。");
+            String url = WechatConfig.AUTHORIZE_URL
                     .replace("APPID", WechatConfig.APPID)
-                    .replace("REDIRECT_URI", WechatConfig.AUTHORIZE_URL_REDIRECT_URI)
-            );
+                    .replace("REDIRECT_URI", authorize_url_redirect_uri);
+            LOGGER.info("url:{}",url);
+            response.sendRedirect(url);
         } catch (IOException e) {
             LOGGER.error("转发到微信授权页面出错：{}", e);
         }

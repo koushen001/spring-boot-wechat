@@ -21,7 +21,7 @@
             <div class="jumbotron">
                 <h1>没有设备信息</h1>
                 <p>你好，你还没有录入设备信息，录入设备信息，设定提醒日期，设备到期后会发邮件提醒你。</p>
-                <p><a class="btn btn-primary btn-lg" href="${path}/device/edit" role="button">去录入</a></p>
+                <p><a class="btn btn-primary btn-lg" href="${path}/device/edit/0" role="button">去录入</a></p>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 <tbody>
                 <c:forEach items="${list}" var="d" varStatus="status">
                     <tr class="tr">
-                        <th scope="row">${d.deviceName}</th>
+                        <th scope="row"><a href="${path}/device/detail/${d.id}">${d.deviceName}</a></th>
                         <td>${d.expireDate}</td>
                         <td>
                             <a class="btn btn-info btn-xs" href="${path}/device/edit/${d.id}" role="button">修改</a>

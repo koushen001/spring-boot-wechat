@@ -37,17 +37,21 @@ public class WechatUtil {
      * 组装菜单
      */
     public static Menu initMenu() {
+
+        String url = "http://www.kouliang.site";
+//        String url = "http://koushen001.imwork.net";
+
         Menu menu = new Menu();
 
         ViewButton button1 = new ViewButton();
         button1.setName("设备管理");
         button1.setType("view");
-        button1.setUrl("http://koushen001.imwork.net");
+        button1.setUrl(url);
 
         ViewButton button2 = new ViewButton();
         button2.setName("个人中心");
         button2.setType("view");
-        button2.setUrl("http://koushen001.imwork.net");
+        button2.setUrl(url);
 
         ClickButton button31 = new ClickButton();
         button31.setName("我要扫码");
@@ -70,9 +74,8 @@ public class WechatUtil {
     /**
      * 创建菜单
      */
-    public static int createMenu() {
-        String access_token = "_5xCkRGwCTkWZVuED1fIKxcWnmbgeNJj6dsOmmrE0s2NfH4HqwdFm1THyWChXbg64dN_x8-m5FRbkZqQ0dVF_YjS9LRrjtpQlbO2Y00weG8AJZdAIAFOE";
-        String url = WechatConfig.CREATE_MENU_URL.replace("ACCESS_TOKEN", access_token);
+    public static int createMenu(String accessToken) {
+        String url = WechatConfig.CREATE_MENU_URL.replace("ACCESS_TOKEN", accessToken);
         Menu menu = initMenu();
         String result = HttpUtil.post(url, JSONUtil.toJsonStr(menu));
         LOGGER.info("创建菜单接口返回数据：{}", result);
@@ -80,7 +83,6 @@ public class WechatUtil {
     }
 
     public static void main(String[] args) {
-        //getAccessToken();
-        createMenu();
+        createMenu(getAccessToken());
     }
 }

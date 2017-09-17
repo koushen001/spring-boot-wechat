@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author CIKE
@@ -11,6 +12,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  * @create 2017-09-14 9:01
  **/
 @SpringBootApplication
+@EnableScheduling
 public class App extends SpringBootServletInitializer {
 
     @Override

@@ -21,6 +21,11 @@ public class Device {
     private String expireDate;
     private String remindDate;
     private Long userId;
+    private Integer checkType;
+    private Integer useStatus;
+    private String filePath;
+    //是否发过邮件提醒，1代表已发，0代表未发
+    private Integer isSendEmail;
 
     public Long getId() {
         return id;
@@ -76,5 +81,37 @@ public class Device {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Integer getCheckType() {
+        return checkType;
+    }
+
+    public void setCheckType(Integer checkType) {
+        this.checkType = checkType;
+    }
+
+    public Integer getUseStatus() {
+        return useStatus;
+    }
+
+    public void setUseStatus(Integer useStatus) {
+        this.useStatus = useStatus;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public Integer getIsSendEmail() {
+        return isSendEmail;
+    }
+
+    public void setIsSendEmail(Integer isSendEmail) {
+        this.isSendEmail = isSendEmail;
     }
 }

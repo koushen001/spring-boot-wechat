@@ -11,5 +11,6 @@ import java.util.List;
  * @create 2017-09-15 14:16
  **/
 public interface DeviceRepository extends JpaRepository<Device, Long> {
-    List<Device> findByUserId(Long userId);
+
+    List<Device> findByOpenId(String openid);
 }

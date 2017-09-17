@@ -3,7 +3,6 @@ package com.cike.controller;
 import com.cike.common.MyConst;
 import com.cike.config.WechatConfig;
 import com.cike.entity.User;
-import com.cike.service.UserService;
 import com.cike.service.WechatService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +29,6 @@ public class LoginController {
 
     @Autowired
     private WechatService wechatService;
-    @Autowired
-    private UserService userService;
 
     @Value("${authorize_url_redirect_uri}")
     private String authorize_url_redirect_uri;
@@ -43,7 +40,7 @@ public class LoginController {
             String url = WechatConfig.AUTHORIZE_URL
                     .replace("APPID", WechatConfig.APPID)
                     .replace("REDIRECT_URI", authorize_url_redirect_uri);
-            LOGGER.info("url:{}",url);
+            LOGGER.info("url:{}", url);
             response.sendRedirect(url);
         } catch (IOException e) {
             LOGGER.error("转发到微信授权页面出错：{}", e);
@@ -54,14 +51,6 @@ public class LoginController {
     public String getCode(String code, HttpSession session, HttpServletRequest request) {
         LOGGER.info("微信返回code:{}", code);
         User user = wechatService.getUser(code);
-        session.setAttribute(MyConst.CURRENT_USER, user);
-        session.setAttribute(MyConst.PROJECT_PATH, request.getContextPath());
-        return "redirect:/";
-    }
-
-    @RequestMapping("/index")
-    public String index(HttpSession session, HttpServletRequest request) {
-        User user = userService.getById(1L);
         session.setAttribute(MyConst.CURRENT_USER, user);
         session.setAttribute(MyConst.PROJECT_PATH, request.getContextPath());
         return "redirect:/";

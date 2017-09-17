@@ -37,7 +37,7 @@ public class DeviceController {
     @RequestMapping("/list")
     public String list(ModelMap map, HttpSession session) {
         User user = (User) session.getAttribute(MyConst.CURRENT_USER);
-        List<Device> list = deviceService.findByUserId(user.getId());
+        List<Device> list = deviceService.findByOpenId(user.getOpenid());
         map.put("list", list);
         return "device/list";
     }
@@ -60,7 +60,7 @@ public class DeviceController {
             device.setFilePath(filePath);
         }
         User user = (User) request.getSession().getAttribute(MyConst.CURRENT_USER);
-        device.setUserId(user.getId());
+        device.setOpenId(user.getOpenid());
         deviceService.save(device);
         return "redirect:/device/list";
     }

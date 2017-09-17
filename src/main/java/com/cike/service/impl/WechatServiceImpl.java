@@ -2,14 +2,12 @@ package com.cike.service.impl;
 
 import com.cike.bo.AccessTokenPO;
 import com.cike.config.WechatConfig;
-import com.cike.dao.UserRepository;
 import com.cike.entity.User;
 import com.cike.service.WechatService;
 import com.xiaoleilu.hutool.http.HttpUtil;
 import com.xiaoleilu.hutool.json.JSONUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,8 +20,6 @@ public class WechatServiceImpl implements WechatService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WechatServiceImpl.class);
 
-    @Autowired
-    private UserRepository userRepository;
 
     @Override
     public User getUser(String code) {
@@ -33,11 +29,6 @@ public class WechatServiceImpl implements WechatService {
                 replace("OPENID", accessToken.getOpenid()));
         LOGGER.info("拉取用户信息(需scope为 snsapi_userinfo)返回数据：{}", result);
         User user = JSONUtil.toBean(JSONUtil.parseObj(result), User.class);
-        User u = userRepository.findByopenid(user.getOpenid());
-        if (u!=null){
-            user.setId(u.getId());
-        }
-        userRepository.save(user);
         return user;
     }
 

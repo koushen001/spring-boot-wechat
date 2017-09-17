@@ -20,7 +20,7 @@ public class Device {
     private String deviceDescribe;
     private String expireDate;
     private String remindDate;
-    private Long userId;
+    private String openId;
     private Integer checkType;
     private Integer useStatus;
     private String filePath;
@@ -75,12 +75,12 @@ public class Device {
         this.remindDate = remindDate;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getOpenId() {
+        return openId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
     public Integer getCheckType() {

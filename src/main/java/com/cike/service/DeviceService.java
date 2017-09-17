@@ -19,5 +19,5 @@ public interface DeviceService {
 
     void save(Device device);
 
-    List<Device> findByUserId(Long userId);
+    List<Device> findByOpenId(String openid);
 }

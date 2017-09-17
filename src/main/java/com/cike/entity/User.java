@@ -1,8 +1,5 @@
 package com.cike.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,12 +8,8 @@ import java.util.Date;
  * @desc ${DESCRIPTION}
  * @create 2017-09-15 9:03
  **/
-@Entity
 public class User implements Serializable {
 
-    @Id
-    @GeneratedValue
-    private Long id;
     private String subscribe; //用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息。
     private String openid; //用户的标识，对当前公众号唯一
     private String nickname; //用户的昵称
@@ -33,14 +26,6 @@ public class User implements Serializable {
     private String tagid_list;    //用户被打上的标签ID列表
     private Date createTime;
     private Date updateTime;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getSubscribe() {
         return subscribe;

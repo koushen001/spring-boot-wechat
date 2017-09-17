@@ -38,8 +38,8 @@ public class WechatUtil {
      */
     public static Menu initMenu() {
 
-        String url = "http://www.kouliang.site";
-//        String url = "http://koushen001.imwork.net";
+//        String url = "http://www.kouliang.site";
+        String url = "http://koushen001.imwork.net";
 
         Menu menu = new Menu();
 

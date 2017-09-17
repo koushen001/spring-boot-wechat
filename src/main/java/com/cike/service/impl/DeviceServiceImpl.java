@@ -40,7 +40,7 @@ public class DeviceServiceImpl implements DeviceService{
     }
 
     @Override
-    public List<Device> findByUserId(Long userId) {
-        return deviceRepository.findByUserId(userId);
+    public List<Device> findByOpenId(String openid) {
+        return deviceRepository.findByOpenId(openid);
     }
 }

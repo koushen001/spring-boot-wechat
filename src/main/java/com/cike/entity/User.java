@@ -9,7 +9,7 @@ import java.util.Date;
  * @create 2017-09-15 9:03
  **/
 public class User implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     private String subscribe; //用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息。
     private String openid; //用户的标识，对当前公众号唯一
     private String nickname; //用户的昵称

@@ -24,9 +24,13 @@ public class LoginInterceptor implements HandlerInterceptor {
         User user = (User) request.getSession().getAttribute(MyConst.CURRENT_USER);
         if (user == null) {
             LOGGER.info("拦截到请求：{}", request.getRequestURI());
+            //User user1 = new User();
+            //user1.setOpenid("001");
+            //request.getSession().setAttribute(MyConst.CURRENT_USER, user1);
             response.sendRedirect("/login/wechat");
-            return false;
+            return true;
         }
+
         return true;
     }
 

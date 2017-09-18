@@ -52,11 +52,11 @@ public class DeviceController {
     }
 
     @RequestMapping("save")
-    public String save(@RequestParam("file") MultipartFile file, Device device,HttpServletRequest request) {
+    public String save(@RequestParam("file") MultipartFile file, Device device, HttpServletRequest request) {
         //调用保存文件的帮助类进行保存文件，并返回文件的相对路径
-        if (!file.isEmpty()){
+        if (!file.isEmpty()) {
             String filePath = Files_Utils_DG.FilesUpload_transferTo_spring(request, file, "/upload");
-            LOGGER.info("filePath：{}",filePath);
+            LOGGER.info("filePath：{}", filePath);
             device.setFilePath(filePath);
         }
         User user = (User) request.getSession().getAttribute(MyConst.CURRENT_USER);
@@ -79,5 +79,13 @@ public class DeviceController {
             map.put("device", device);
         }
         return "device/detail";
+    }
+
+    @RequestMapping("queryEmail")
+    @ResponseBody
+    public String queryEmail(HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute(MyConst.CURRENT_USER);
+        String email = deviceService.findEmailByOpenId(user.getOpenid());
+        return email;
     }
 }

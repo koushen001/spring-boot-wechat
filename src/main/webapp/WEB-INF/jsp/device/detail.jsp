@@ -80,6 +80,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-xs-4 control-label">提醒邮箱：</label>
+                        <div class="col-xs-8">
+                            <P>${device.email}</P>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-xs-offset-4 col-xs-8">
                             <a role="button" class="btn btn-success" href="${path}/device/list">返回</a>
                         </div>

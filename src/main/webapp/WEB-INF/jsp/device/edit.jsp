@@ -89,6 +89,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-xs-4 control-label">提醒邮箱：</label>
+                        <div class="col-xs-8">
+                            <input name="email" value="${device.email}" type="email" class="form-control email"
+                                   placeholder="必填">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-xs-offset-4 col-xs-8">
                             <button type="button" onclick="checkForm()" class="btn btn-success">提交</button>
                         </div>

@@ -3,6 +3,7 @@ package com.cike.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * @author CIKE
@@ -26,6 +27,9 @@ public class Device {
     private String filePath;
     //是否发过邮件提醒，1代表已发，0代表未发
     private Integer isSendEmail;
+    private String email;
+    private Date createTime;
+    private Date updateTime;
 
     public Long getId() {
         return id;
@@ -113,5 +117,29 @@ public class Device {
 
     public void setIsSendEmail(Integer isSendEmail) {
         this.isSendEmail = isSendEmail;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

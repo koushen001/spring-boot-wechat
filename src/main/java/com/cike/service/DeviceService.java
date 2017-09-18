@@ -20,4 +20,12 @@ public interface DeviceService {
     void save(Device device);
 
     List<Device> findByOpenId(String openid);
+
+    String findEmailByOpenId(String openid);
+    /**
+     * 查询所有待发邮件提醒的设备
+     */
+    List<Device> findByIsSendEmailAndRemindDate();
+
+    void updateSendStatus(Device device);
 }
